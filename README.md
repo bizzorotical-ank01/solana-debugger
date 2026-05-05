@@ -8,7 +8,7 @@ Solana developers waste hours decoding cryptic transaction errors like:
 
 Program 11111111111111111111111111111111 failed: custom program error: 0x1
 
-SolanaDebugger explains what went wrong, the root cause, and exactly how to fix it — in seconds.
+SolanaDebugger explains what went wrong, the root cause, and exactly how to fix it in seconds.
 
 ## Demo
 
@@ -66,10 +66,10 @@ npm run dev
 
 ## Error types supported
 
-- 💸 **Funds** — insufficient SOL or token balance
-- ⚙️ **Config** — wrong accounts or parameters
-- 🐛 **Bug** — program logic errors
-- 🔗 **CPI** — cross-program invocation failures
+- **Funds** — insufficient SOL or token balance
+- **Config** — wrong accounts or parameters
+- **Bug** — program logic errors
+- **CPI** — cross-program invocation failures
 
 ## Built for
 
