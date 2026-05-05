@@ -20,6 +20,12 @@ SolanaDebugger explains what went wrong, the root cause, and exactly how to fix 
 
 ![Result](assets/TheResult.png)
 
+## Video
+
+## Demo
+
+https://github.com/bizzorotical-ank01/solana-debugger/raw/main/SolanaDebugger.mp4
+
 ## Tech Stack
 
 - **Frontend:** React + Vite
