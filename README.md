@@ -22,9 +22,7 @@ SolanaDebugger explains what went wrong, the root cause, and exactly how to fix 
 
 ## Video
 
-## Demo
-
-https://github.com/bizzorotical-ank01/solana-debugger/raw/main/SolanaDebugger.mp4
+https://github.com/user-attachments/assets/271ba5bc-397a-4b52-ab99-d260eb67a321
 
 ## Tech Stack
 
