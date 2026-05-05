@@ -9,9 +9,6 @@ HELIUS_URL = f"https://mainnet.helius-rpc.com/?api-key={HELIUS_API_KEY}"
 
 async def fetch_transaction_logs(signature: str):
     
-    print(f"DEBUG - API Key loaded: {HELIUS_API_KEY}")
-    print(f"DEBUG - URL: {HELIUS_URL}")
-    
     payload = {
         "jsonrpc": "2.0",
         "id": 1,

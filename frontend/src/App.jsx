@@ -26,6 +26,7 @@ export default function App() {
         {
           input: input.trim(),
         },
+        { timeout: 60000 },
       );
       if (res.data.error) {
         setError(res.data.error);
@@ -33,10 +34,24 @@ export default function App() {
         setResult(res.data);
       }
     } catch (e) {
-      setError("Could not connect to backend.");
+      if (e.code === "ECONNABORTED") {
+        setError("Request timed out. Backend may be slow. Try again.");
+      } else if (e.response?.status === 500) {
+        setError("Backend error. Check your error format and try again.");
+      } else {
+        setError(
+          "Could not connect to backend. Check your internet connection.",
+        );
+      }
     } finally {
       setLoading(false);
     }
+  }
+
+  function handleClear() {
+    setInput("");
+    setResult(null);
+    setError(null);
   }
 
   return (
@@ -90,10 +105,30 @@ export default function App() {
             fontSize: "16px",
             cursor: loading ? "not-allowed" : "pointer",
             fontFamily: "monospace",
+            marginRight: "8px",
           }}
         >
           {loading ? "Analyzing..." : "Debug Transaction →"}
         </button>
+
+        {(result || error) && (
+          <button
+            onClick={handleClear}
+            style={{
+              marginTop: "12px",
+              padding: "12px 32px",
+              background: "#333",
+              color: "#888",
+              border: "1px solid #555",
+              borderRadius: "8px",
+              fontSize: "16px",
+              cursor: "pointer",
+              fontFamily: "monospace",
+            }}
+          >
+            Clear
+          </button>
+        )}
 
         {error && (
           <div
@@ -168,7 +203,27 @@ export default function App() {
                 padding: "20px",
               }}
             >
-              <h3 style={{ color: "#9945ff", marginTop: 0 }}>How to fix it</h3>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+                <h3 style={{ color: "#9945ff", margin: 0 }}>How to fix it</h3>
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText(result.ai_explanation.fix);
+                    alert("Copied to clipboard!");
+                  }}
+                  style={{
+                    padding: "4px 12px",
+                    background: "#333",
+                    color: "#9945ff",
+                    border: "1px solid #9945ff",
+                    borderRadius: "4px",
+                    fontSize: "12px",
+                    cursor: "pointer",
+                    fontFamily: "monospace",
+                  }}
+                >
+                  Copy
+                </button>
+              </div>
               <pre
                 style={{
                   margin: 0,

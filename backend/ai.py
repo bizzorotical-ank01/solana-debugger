@@ -53,8 +53,6 @@ Return ONLY the JSON. No extra text. No markdown. No backticks."""
         )
         data = response.json()
 
-    print(f"DEBUG - OpenRouter response: {data}")
-
     if "choices" not in data:
         return {
             "explanation": f"AI error: {data}",
@@ -64,7 +62,6 @@ Return ONLY the JSON. No extra text. No markdown. No backticks."""
         }
 
     raw = data["choices"][0]["message"]["content"].strip()
-    print(f"DEBUG - Raw AI response: {raw}")
 
     if not raw:
         return {
@@ -80,4 +77,12 @@ Return ONLY the JSON. No extra text. No markdown. No backticks."""
         if raw.startswith("json"):
             raw = raw[4:]
 
-    return json.loads(raw.strip())
+    try:
+        return json.loads(raw.strip())
+    except json.JSONDecodeError:
+        return {
+            "explanation": "AI returned invalid JSON response",
+            "root_cause": "Model formatting error",
+            "fix": "Try again or check error format",
+            "severity": "config"
+        }
