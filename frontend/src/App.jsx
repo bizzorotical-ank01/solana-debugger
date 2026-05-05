@@ -48,10 +48,10 @@ export default function App() {
     >
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
         <h1 style={{ fontSize: "28px", marginBottom: "8px" }}>
-          ⚡ SolanaDebug AI
+          SolanaDebugger
         </h1>
         <p style={{ color: "#888", marginBottom: "32px" }}>
-          Paste a failed transaction signature or error log → get an instant AI
+          Paste a failed transaction signature or error log → get an instant
           explanation
         </p>
 
