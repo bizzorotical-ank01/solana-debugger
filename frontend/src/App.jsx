@@ -21,9 +21,12 @@ export default function App() {
     setError(null);
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/debug", {
-        input: input.trim(),
-      });
+      const res = await axios.post(
+        "https://solana-debugger-production.up.railway.app/debug",
+        {
+          input: input.trim(),
+        },
+      );
       if (res.data.error) {
         setError(res.data.error);
       } else {
