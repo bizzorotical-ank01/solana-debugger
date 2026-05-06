@@ -75,6 +75,17 @@ npm run dev
 - **Bug** — program logic errors
 - **CPI** — cross-program invocation failures
 
-## Built for
+## Acknowledgement
 
-Colosseum Frontier Hackathon — May 2026
+This project was created by @bizzorotical-ank01 SolanaDebugger was created to solve a real pain point in Solana development cryptic error messages that waste developer time. This tool helps developers understand:
+
+- What went wrong in a failed transaction
+- The root cause of the error
+- Exactly how to fix it
+
+Built using Python, FastAPI, React, Helius RPC, and Claude AI.
+Special thanks to Helius for RPC infrastructure and Anthropic for Claude AI.
+
+Feel free to explore the code and documentation in this repository.
+
+If you have any questions or suggestions, Let's Connect, Till then GOOD LUCK BUDDY!
